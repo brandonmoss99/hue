@@ -18,7 +18,11 @@ for opt, arg in opts:
 	if opt in ['-r', '--room']:
 		room = arg
 	elif opt in ['-b', '--brightness']:
-		brightness = arg
+		#try converting brightness argument to integer type
+		try:
+			brightness = int(arg)
+		except:
+			print("Error converting brightness to an integer!")
 	elif opt in ['-o', '--on']:
 		on = 1
 	elif opt in ['-f', '--off']:
@@ -44,9 +48,9 @@ elif on == 0:
 #check if a brightness was given to change light brightness
 if brightness is not None:
 	#brightness value sanity check
-	if int(brightness) < 0 or int(brightness) > 255:
+	if brightness < 0 or brightness > 255:
 		print('Brightness must be between 0 and 255!')
 	else:
 		if room == "kitchen":
-			print("Setting",room,"lights to brightness level",int(brightness))
-			b.set_light(['Kitchen 1', 'Kitchen 2', 'Kitchen 3', 'Kitchen 4'], 'bri', int(brightness))
+			print("Setting",room,"lights to brightness level",brightness)
+			b.set_light(['Kitchen 1', 'Kitchen 2', 'Kitchen 3', 'Kitchen 4'], 'bri', brightness)
