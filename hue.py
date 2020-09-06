@@ -20,6 +20,7 @@ roomLights = {"kitchen":('Kitchen 1', 'Kitchen 2', 'Kitchen 3', 'Kitchen 4'),
 
 def getHelp():
 	print("\nList of Parameters:\n\n"+
+		"(i)p of hue bridge to connect to\n"+
 		"(l)ight to control [\'light\']\n"+
 		"(r)oom to control [room]\n"+
 		"Turn lights (o)n\n"+
