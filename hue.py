@@ -38,7 +38,7 @@ def getCapabilities(light):
 
 #get lowest light capability in a room
 def getRoomCapabilities(room):
-	lowestLightType = 0
+	lowestLightType = 999 #arbitraty number higher than any practical light type
 	for light in roomLights[room]:
 		lightType = int(lightTypes[b.get_light(light, 'type')])
 		lowestLightType = min(lightType, lowestLightType)
