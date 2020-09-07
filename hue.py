@@ -29,6 +29,7 @@ def getHelp():
 		"(c)olour of lights [0-65535]\n"+
 		"colour (t)empature of lights [154-500] or [2000-6500] for Kelvin\n"+
 		"(s)aturation of light colour [0-255]\n")
+	sys.exit(0)
 
 #get light capabilities
 def getCapabilities(light):
@@ -40,8 +41,7 @@ def getRoomCapabilities(room):
 	lowestLightType = 0
 	for light in roomLights[room]:
 		lightType = int(lightTypes[b.get_light(light, 'type')])
-		if min(lightType, lowestLightType) == lightType:
-			lowestLightType = lightType
+		lowestLightType = min(lightType, lowestLightType)
 	return lowestLightType
 
 
